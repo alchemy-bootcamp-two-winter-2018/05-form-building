@@ -82,8 +82,6 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-const fillTemplate = Handlebars.compile($('#article-template').html());
-
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
@@ -96,11 +94,24 @@ articleView.initNewArticlePage = () => {
     $('#article-json').on('focus', function () {
         this.select();
     });
-    $('form').on('change', 'input, textarea', function(){
-        console.log('form changed');
-    });
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
 
+    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    $('form').on('change', 'input, textarea', function() {
+        articleView.preview();
+    });
+
+};
+
+articleView.preview = () => {
+    const newData = {
+        category: $('#new-category').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        title: $('#new-title').val(),
+        body: $('#new-body').val()
+    };
+
+    $('#articles').html(new Article(newData).toHtml());
 };
 
 articleView.create = () => {
