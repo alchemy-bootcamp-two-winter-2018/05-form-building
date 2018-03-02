@@ -89,6 +89,7 @@ articleView.initIndexPage = () => {
 articleView.initNewArticlePage = () => {
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('tab-content').show();
+    $('#articles').empty();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
@@ -105,11 +106,18 @@ articleView.initNewArticlePage = () => {
 
 articleView.create = () => {
     console.log('create was called');
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODOne: Set up a variable to hold the new article we are creating.
+    const data = {
+        title: $('#new-title').val(),
+        category: $('#new-category').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        publishedOn: $('#new-is-published').val(),
+        body: $('#new-body').val()
+    };
+    console.log(data);
     // Clear out the #articles element, so we can put in the updated preview
-    // const data = {
-    //     title: $('new-title').val(),
-    // }
+    $('#articles').empty();
 
     // TODO: Instantiate an article based on what's in the form fields:
 
