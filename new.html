@@ -43,12 +43,35 @@
            6. Some way to know if this article is a draft or is published -->
            <form id="new-article">
                <fieldset>
-                    <input type="text" id="new-title" placeholder="Title">
-                    <textarea placeholder="What do you want to say?" id="new-body"></textarea>
+                <label>
+                  Title:
+                  <input type="text" id="new-title" placeholder="Title">
+                </label>
+
+                <label>
+                  Body:
+                  <textarea placeholder="What do you want to say?" id="new-body"></textarea>
+                </label>
+
+                <label>
+                  Author:
                     <input type="text" id="new-author" placeholder="Author Name">
+                </label>
+
+                <label>
+                  Url:
                     <input type="text" id="new-website" placeholder="Author Website">
+                </label>
+
+                <label>
+                  Category:
                     <input type="text" id="new-category" placeholder="Category">
+                </label>
+
+                <label>
+                  Published:
                     <input type="checkbox" id="new-is-published"><label>Published</label>
+                </label>
                </fieldset>
            </form>
       </section>
