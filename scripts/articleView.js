@@ -51,7 +51,7 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
@@ -87,9 +87,8 @@ articleView.initIndexPage = () => {
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
-
+    // TODONE: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    articleView.handleMainNav();
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
 
@@ -98,23 +97,36 @@ articleView.initNewArticlePage = () => {
     });
 
     // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    $('#new-article').on('change', function() {
+        articleView.create();
+    });
 };
 
 articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODONE: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
 
+    const newPost = {
 
-    // TODO: Instantiate an article based on what's in the form fields:
+    // TODONE: Instantiate an article based on what's in the form fields:
+        title: $('#new-title').val(),
+        body: $('#new-body').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        category: $('#new-category').val()
+    };
 
+    const blogPost = new Article(newPost); //eslint-disable-line
+    const html = blogPost.toHtml();
+    $('#articlesNew').html(html);
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
 
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
-
+    $('#article-export').show();
+    $('#article-json').val(JSON.stringify(newPost, true, 2));
 };
