@@ -51,7 +51,7 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
@@ -101,7 +101,7 @@ articleView.initNewArticlePage = () => {
     });
 
     // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-    articleView.create();
+    articleView.formChange();
 };
 
 articleView.create = () => {
@@ -118,10 +118,11 @@ articleView.create = () => {
     $('#article-export').show();
     $('#article-json').val(JSON.stringify(data, true, 2));
 
+    //eslint-disable-next-line
     const article = new Article(data);
     const html = article.toHtml();
     // Clear out the #articles element, so we can put in the updated preview
-    $('#articles').html(html);
+    $('#preview').html(html);
 
 
     // TODO: Instantiate an article based on what's in the form fields:
