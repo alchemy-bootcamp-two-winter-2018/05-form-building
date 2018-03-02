@@ -108,7 +108,6 @@ articleView.create = () => {
     console.log('create was called');
     // TODOne: Set up a variable to hold the new article we are creating.
     const todaysDate = new Date();
-    console.log(todaysDate);
     const todaysMonth = todaysDate.getUTCMonth() + 1;
     const todaysYear = todaysDate.getUTCFullYear();
     const todaysDay = todaysDate.getUTCDate();
@@ -129,7 +128,7 @@ articleView.create = () => {
         authorUrl: $('#new-website').val(),
         publishedOn: publishDate(),
         body: $('#new-body').val()
-    
+
     };
     // Clear out the #articles element, so we can put in the updated preview
     // Done above in initNewArticlePage
