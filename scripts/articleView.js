@@ -73,7 +73,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This is called in the script tag of the index.html because we only want this function to be called on that page.
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -85,7 +85,7 @@ articleView.initIndexPage = () => {
 
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This is called in the script tag of the new.html because we only want this function to be called on that page.
 articleView.initNewArticlePage = function () {
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     articleView.handleMainNav();
@@ -121,6 +121,7 @@ articleView.create = () => {
     const article = new Article(data);
     const html = article.toHtml();
     preview.html(html);
+
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
