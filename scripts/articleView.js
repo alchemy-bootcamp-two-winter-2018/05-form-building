@@ -51,7 +51,7 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
@@ -73,7 +73,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// It is called at the end of index.html, because we need a different HTML page to refer to the part of JS that serves its needs (it wouldn't make sense to call both sets of code on each page)
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -85,11 +85,9 @@ articleView.initIndexPage = () => {
 
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// At the bottom of the new.html page, because we need a different HTML page to refer to the part of JS that serves its needs (it wouldn't make sense to call both sets of code on each page)
 articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
-
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
 
@@ -97,8 +95,11 @@ articleView.initNewArticlePage = () => {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    articleView.formChange = function () {
+        const form = $('#new-form');
+        form.on('change', 'input, textarea', () => this.preview());
+    };
 };
 
 articleView.create = () => {

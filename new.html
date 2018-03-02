@@ -34,7 +34,7 @@
 
       <section id="write" class="tab-content">
         <h1>Create New Article</h1>
-        <!-- TODO: Set up a form to accept user input for a new blog article. Remember that we need:
+        <!-- TODOne: Set up a form to accept user input for a new blog article. Remember that we need:
            1. Article title
            2. Article body
            3. Article author
@@ -43,12 +43,18 @@
            6. Some way to know if this article is a draft or is published -->
            <form id="new-article">
                <fieldset>
+                <label>Title</label>
                     <input type="text" id="new-title" placeholder="Title">
+                <label>Body</label> 
                     <textarea placeholder="What do you want to say?" id="new-body"></textarea>
+                <label>Author's Name</label>
                     <input type="text" id="new-author" placeholder="Author Name">
+                <label>Author's Website</label>
                     <input type="text" id="new-website" placeholder="Author Website">
+                <label>Category</label>
                     <input type="text" id="new-category" placeholder="Category">
-                    <input type="checkbox" id="new-is-published"><label>Published</label>
+                <label>Published</label>
+                    <input type="checkbox" id="new-is-published">
                </fieldset>
            </form>
       </section>
@@ -59,6 +65,10 @@
 
       <section id="article-export">
         <!-- STRETCH: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
+          <label id="export-field" for="article-json" class="pull-right">
+            When finalized, copy the above JSON, and paste it into blogArticles.js
+            <textarea readonly id="artice-json" rows="20" cols="40" ></textarea>
+          </label>
       </section>
 
     </main>
@@ -73,12 +83,12 @@
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
     <script>
-      // TODO: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
+      // TODOne: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
       // (Look at the bottom of index.html as a reference. Since we are now using our JS on two different HTML pages that have different needs as to what parts of the code they utilize, we need to build a function that inializes each page.)
       //  Hint: Look in articleView.js for a function that does this.
-
+      articleView.initNewArticlePage();
       // COMMENT: What is this function doing? Why do we need it?
-      // PUT YOUR RESPONSE HERE
+      // This function is creating the new article page (just like it says) after the user submits their form entries. It has to be separate from the main HTML page because the main page uses different JS that cannot be comingled.
     </script>
   </body>
 </html>
