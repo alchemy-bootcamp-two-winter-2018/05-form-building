@@ -48,6 +48,10 @@
   text-decoration: none;
 }
 
+#article-export {
+  display: none;
+}
+
 #article-export label {
   font-size: .8em;
   font-style: italic;
