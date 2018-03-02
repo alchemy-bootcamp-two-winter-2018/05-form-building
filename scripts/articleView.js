@@ -82,7 +82,10 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-
+articleView.formChange = function() {
+    const form = $('#new-article');
+    form.on('change', 'input,textarea', () => articleView.create());
+};
 
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
