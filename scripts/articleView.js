@@ -112,18 +112,25 @@ articleView.initNewArticlePage = () => {
 
 articleView.create = () => {
     // TODO: Set up a variable to hold the new article we are creating.
-
+    const newArticle = {
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        title: $('#new-title').val(),
+        category: $('#new-category').val(),
+        body: $('#new-body').val(),
+        publishedOn: []
+    };
     // Clear out the #articles element, so we can put in the updated preview
 
 
     // TODO: Instantiate an article based on what's in the form fields:
     $('#articles').show();
-    $('#preview-article h1').text($('#new-title').val());
-    $('#preview-article .article-body').text($('#new-body').val());
-    $('#preview-article article').attr('data-author', $('#new-author').val());
-    $('#preview-article .byline a').text($('#new-author').val());
-    $('#preview-article .byline a').attr('href', $('new-website').val());
-    $('#preview-article article').attr('data-category', $('#new-category').val());        
+    $('#preview-article h1').text(newArticle.title);
+    $('#preview-article .article-body').text(newArticle.body);
+    $('#preview-article article').attr('data-author', (newArticle.author));
+    $('#preview-article .byline a').text(newArticle.author);
+    $('#preview-article .byline a').attr('href', newArticle.authorUrl);
+    $('#preview-article article').attr('data-category', (newArticle.category));        
 
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
