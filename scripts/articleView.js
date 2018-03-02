@@ -97,21 +97,25 @@ articleView.initNewArticlePage = () => {
 
     // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
     $('form').on('change', 'input, textarea', function() {
-        articleView.preview();
+        const newData = {
+            category: $('#new-category').val(),
+            author: $('#new-author').val(),
+            authorUrl: $('#new-website').val(),
+            title: $('#new-title').val(),
+            body: $('#new-body').val()
+        };
+
+        if ($('#new-is-published:checked').val()) {
+            const now = new Date();
+            const formattedDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+            newData.publishedOn = formattedDate;
+        } else {
+            newData.publishedOn = null;
+        }
+
+        $('#articles').html(new Article(newData).toHtml()); //eslint-disable-line
     });
 
-};
-
-articleView.preview = () => {
-    const newData = {
-        category: $('#new-category').val(),
-        author: $('#new-author').val(),
-        authorUrl: $('#new-website').val(),
-        title: $('#new-title').val(),
-        body: $('#new-body').val()
-    };
-
-    $('#articles').html(new Article(newData).toHtml());
 };
 
 articleView.create = () => {
