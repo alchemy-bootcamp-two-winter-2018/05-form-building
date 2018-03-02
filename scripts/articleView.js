@@ -106,8 +106,15 @@ articleView.initNewArticlePage = () => {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    // TODONE: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    $('#new-article').on('change', function() {
+        $('#articles h1').text($('#new-title').val());
+        $('#articles .article-body').text($('#new-body').val());
+        $('#articles article').attr('data-author', $('#new-author').val());
+        $('#articles .byline a').text($('#new-author').val());
+        $('#articles .byline a').attr('href', $('new-website').val());
+        $('#articles article').attr('data-category', $('#new-category').val());        
+    });
 };
 
 articleView.create = () => {
