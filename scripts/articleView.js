@@ -87,7 +87,7 @@ articleView.initIndexPage = () => {
 // COMMENT: Where is this function called? Why?
 // This is called in the script tag of the new.html because we only want this function to be called on that page.
 articleView.initNewArticlePage = function () {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     articleView.handleMainNav();
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
@@ -96,18 +96,18 @@ articleView.initNewArticlePage = function () {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
     const form = $('#new-article');
     form.on('change', 'input, textarea', () => this.create());
 };
 
 articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
     $('.tab-content').show();
     const preview = $('#articles');
 
-    // TODO: Instantiate an article based on what's in the form fields:
+    // TODOne: Instantiate an article based on what's in the form fields:
     const data = {
         title: $('#new-title').val(),
         body: $('#new-body').val(),
@@ -117,7 +117,7 @@ articleView.create = () => {
         publishedOn: $('#new-is-published').val()
     };
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     const article = new Article(data);
     const html = article.toHtml();
     preview.html(html);
