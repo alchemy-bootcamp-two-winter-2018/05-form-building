@@ -96,8 +96,8 @@ articleView.initIndexPage = () => {
 // COMMENT: Where is this function called? Why?
 // This function is called in the new.html page. It serves the same purpose as above.
 articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
+    // TODONE: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    articleView.handleMainNav();    
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
