@@ -2,7 +2,6 @@
 
 const articleView = {};
 
-
 articleView.populateFilters = () => {
     $('article').each(function () {
         let val = $(this).find('address a').text();
@@ -102,21 +101,20 @@ articleView.initNewArticlePage = () => {
             author: $('#new-author').val(),
             authorUrl: $('#new-website').val(),
             title: $('#new-title').val(),
-            body: $('#new-body').val()
+            body: $('#new-body').val(),
+            publishedOn: getPublishedOn($('#new-is-published:checked').val())
         };
-
-        if ($('#new-is-published:checked').val()) {
-            const now = new Date();
-            const formattedDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-            newData.publishedOn = formattedDate;
-        } else {
-            newData.publishedOn = null;
-        }
 
         $('#articles').html(new Article(newData).toHtml()); //eslint-disable-line
     });
 
 };
+
+function getPublishedOn(val) {
+    if (!val) return null;
+    const now = new Date();
+    return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+}
 
 articleView.create = () => {
     // TODO: Set up a variable to hold the new article we are creating.
