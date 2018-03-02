@@ -104,7 +104,8 @@ articleView.initNewArticlePage = function () {
 articleView.create = () => {
     // TODO: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
-
+    $('.tab-content').show();
+    const preview = $('#articles');
 
     // TODO: Instantiate an article based on what's in the form fields:
     const data = {
@@ -119,7 +120,7 @@ articleView.create = () => {
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
     const article = new Article(data);
     const html = article.toHtml();
-    
+    preview.html(html);
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
