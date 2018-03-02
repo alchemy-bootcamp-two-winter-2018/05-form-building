@@ -98,16 +98,25 @@ articleView.initNewArticlePage = () => {
     });
 
     // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    $('#new-article').on('change','input,textarea', () => articleView.create());
 };
 
 articleView.create = () => {
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
-    const newArticle = {};
+    const newArticle = {
+        title: $('#new-title').val(),
+        body: $('#new-body').val(),
+        authorName: $('#new-author').val(),
+        authorWebsite: $('#new-website').val(),
+        category: $('#new-category').val(),
+        published: $('#new-is-published').val()
+    };
+    this.console.log(newArticle);
+    $('#articles').empty();
 
     // TODO: Instantiate an article based on what's in the form fields:
-
+    
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
 
