@@ -82,13 +82,13 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-
+const fillTemplate = Handlebars.compile($('#article-template').html());
 
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
+    $('#write').show();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
@@ -96,7 +96,9 @@ articleView.initNewArticlePage = () => {
     $('#article-json').on('focus', function () {
         this.select();
     });
-
+    $('form').on('change', 'input, textarea', function(){
+        console.log('form changed');
+    });
     // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
 
 };
