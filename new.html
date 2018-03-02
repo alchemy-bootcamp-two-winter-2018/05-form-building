@@ -70,10 +70,20 @@
       </section>
 
       <section id="articles" class="tab-content">
-        <!-- NOTE: This is where we will display our article preview -->
+        <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+          <header>
+            <h1>Title</h1>
+            <div class="byline">
+              By <address><a href="{{authorUrl}}">Author</a></address>
+            </div>
+          </header>
+          <section class="article-body">Body</section>
+          <a href="#" class="read-on">Read on &rarr;</a>
+        </article>
+    
       </section>
 
-      <section id="article-export">
+      <section id="article-export" display="none">
         <!-- STRETCH: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
       </section>
 
