@@ -112,11 +112,12 @@ articleView.create = () => {
         category: $('#new-category').val(),
         publishedOn: $('#new-is-published').is(':checked')
     };
-    this.console.log(newArticle.publishedOn);
     $('#articles').empty();
 
     // TODO: Instantiate an article based on what's in the form fields:
-
+    const template = Handlebars.compile($('#preview-article-template').html());
+    this.console.log(template);
+    $('#articles').append(template(newArticle));
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
 
