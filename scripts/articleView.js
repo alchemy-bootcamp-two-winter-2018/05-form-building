@@ -111,7 +111,7 @@ articleView.create = () => {
         category: $('#new-category').val(),
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
-        publishedOn: $('#new-is-published').val(),
+        publishedOn: $('#new-is-published').is(':checked'),
         body: $('#new-body').val()
     };
 
@@ -125,10 +125,10 @@ articleView.create = () => {
     $('#preview').html(html);
 
 
-    // TODO: Instantiate an article based on what's in the form fields:
+    // TODOne: Instantiate an article based on what's in the form fields:
 
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
 
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
