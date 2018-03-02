@@ -107,23 +107,40 @@ articleView.initNewArticlePage = () => {
 articleView.create = () => {
     console.log('create was called');
     // TODOne: Set up a variable to hold the new article we are creating.
+    const todaysDate = new Date();
+    console.log(todaysDate);
+    const todaysMonth = todaysDate.getUTCMonth() + 1;
+    const todaysYear = todaysDate.getUTCFullYear();
+    const todaysDay = todaysDate.getUTCDate();
+    const todaysDateFormat = `${todaysYear}-${todaysMonth}-${todaysDay}`;
+    const publishDate = () => {
+        if ($('#new-is-published').is(':checked')) {
+            return todaysDateFormat;
+        }
+        else {
+            return '';
+        }
+    };
+    publishDate();
     const data = {
         title: $('#new-title').val(),
         category: $('#new-category').val(),
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
-        publishedOn: $('#new-is-published').val(),
+        publishedOn: publishDate(),
         body: $('#new-body').val()
+    
     };
-    console.log(data);
     // Clear out the #articles element, so we can put in the updated preview
-    $('#articles').empty();
+    // Done above in initNewArticlePage
 
-    // TODO: Instantiate an article based on what's in the form fields:
-
+    // TODOne: Instantiate an article based on what's in the form fields:
+    const article = new Article(data);
+    console.log(article);
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
-
+    const html = article.toHtml();
+    $('#articles').html(html);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
