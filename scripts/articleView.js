@@ -75,7 +75,8 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called in index.html, at the end. The purpose is to run specific js code on that page. Because we're using multiple js files for
+// multiple pages, we have access to code from both pages that we may not necessarily use on that particular page. This function allows us to specify.
 articleView.initIndexPage = () => {
     // REVIEW: We can write an arrow function in one line, without the code block, making the code easier to read. With an arrow function, the 'return' is implicit, we can remove it as well.
     // The .sort() method will rearrange the order of elements in the array and return the original array. This method does not make a copy. See the MDN docs for more details.
@@ -93,7 +94,7 @@ articleView.initIndexPage = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called in the new.html page. It serves the same purpose as above.
 articleView.initNewArticlePage = () => {
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
 
