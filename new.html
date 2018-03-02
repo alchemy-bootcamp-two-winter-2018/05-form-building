@@ -68,20 +68,19 @@
                 <input type="checkbox" id="new-is-published"><label>Published</label>
             </fieldset>
         </form>
-
-        <article class="clearfix" id="preview-article" data-author="{{author}}" data-category="{{category}}">
-          <header>
-            <h1>Title</h1>
-            <div class="byline">
-              By <address><a href="{{authorUrl}}">Author</a></address>
-            </div>
-          </header>
-          <section class="article-body"></section>
-          <a href="#" class="read-on">Read on &rarr;</a>
-        </article>
       </section>
 
       <section id="articles" class="tab-content">    
+        <article class="clearfix" id="preview-article" data-author="{{author}}" data-category="{{category}}">
+            <header>
+              <h1>Title</h1>
+              <div class="byline">
+                By <address><a href="{{authorUrl}}">Author</a></address>
+              </div>
+            </header>
+            <section class="article-body"></section>
+            <a href="#" class="read-on">Read on &rarr;</a>
+          </article>    
       </section>
 
       <section id="article-export" display="none">
