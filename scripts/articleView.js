@@ -51,7 +51,7 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
@@ -86,10 +86,9 @@ articleView.initIndexPage = () => {
 
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
-articleView.initNewArticlePage = () => {
+articleView.initNewArticlePage = function () {
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
-
+    articleView.handleMainNav();
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
 
@@ -98,7 +97,8 @@ articleView.initNewArticlePage = () => {
     });
 
     // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    const form = $('#new-article');
+    form.on('change', 'input, textarea', () => this.create());
 };
 
 articleView.create = () => {
@@ -107,11 +107,19 @@ articleView.create = () => {
 
 
     // TODO: Instantiate an article based on what's in the form fields:
-
+    const data = {
+        title: $('#new-title').val(),
+        body: $('#new-body').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        category: $('#new-category').val(),
+        publishedOn: $('#new-is-published').val()
+    };
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
-
-
+    const article = new Article(data);
+    const html = article.toHtml();
+    
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
