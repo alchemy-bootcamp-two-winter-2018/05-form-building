@@ -111,19 +111,19 @@ articleView.initNewArticlePage = () => {
 };
 
 articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODONE: Set up a variable to hold the new article we are creating.
     const newArticle = {
-        author: $('#new-author').val(),
-        authorUrl: $('#new-website').val(),
         title: $('#new-title').val(),
         category: $('#new-category').val(),
-        body: $('#new-body').val(),
-        publishedOn: []
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        publishedOn: '2018-03-01',
+        body: $('#new-body').val()
     };
     // Clear out the #articles element, so we can put in the updated preview
 
 
-    // TODO: Instantiate an article based on what's in the form fields:
+    // TODONE: Instantiate an article based on what's in the form fields:
     $('#articles').show();
     $('#preview-article h1').text(newArticle.title);
     $('#preview-article .article-body').text(newArticle.body);
