@@ -87,8 +87,8 @@ articleView.initIndexPage = () => {
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    $('.main-nav .tab:first').click();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
@@ -97,13 +97,28 @@ articleView.initNewArticlePage = () => {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    articleView.create();
 };
 
 articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODOne: Set up a variable to hold the new article we are creating.
+    const data = {
+        title: $('#new-title').val(),
+        category: $('#new-category').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        publishedOn: $('#new-is-published').val(),
+        body: $('#new-body').val()
+    };
+
+    $('#article-export').show();
+    $('#article-json').val(JSON.stringify(data, true, 2));
+
+    const article = new Article(data);
+    const html = article.toHtml();
     // Clear out the #articles element, so we can put in the updated preview
+    $('#articles').html(html);
 
 
     // TODO: Instantiate an article based on what's in the form fields:
@@ -116,5 +131,6 @@ articleView.create = () => {
     // $('pre code').each();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+
 
 };

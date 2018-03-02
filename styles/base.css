@@ -45,12 +45,12 @@ a:visited {
 /*FORM STYLES
 =======================================*/
 label {
-  font-size: 3em;
+  font-size: 1.5em;
 }
 
 input {
   width: 100%;
-  margin: .5em 0;
+  margin: 1em 0;
   border: 1px solid #ccc;
   border-width: 0 0 1px 0;
   border-radius: 0;
@@ -59,13 +59,13 @@ input {
 input[type="checkbox"] {
   width: .28em;
   height: .28em;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 textarea {
   width: 100%;
   margin: .5em 0;
-  font-size: 2em;
+  font-size: .5em;
   border: 1px solid #ccc;
   border-radius: 0;
 }
