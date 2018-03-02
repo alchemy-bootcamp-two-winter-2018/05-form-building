@@ -54,6 +54,13 @@
   color: #ccc;
 }
 
+.preview-article {
+  border: 2px solid threedface;
+  border-style: groove;
+  padding: 0.35em 0.75em 0.625em;
+  margin: 0.35em 2px .75em 2px;
+}
+
 /* .form label {
     font-size: 3em;
 }
