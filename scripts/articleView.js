@@ -51,7 +51,7 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
@@ -107,16 +107,16 @@ articleView.create = () => {
     const newArticle = {
         title: $('#new-title').val(),
         body: $('#new-body').val(),
-        authorName: $('#new-author').val(),
-        authorWebsite: $('#new-website').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
         category: $('#new-category').val(),
-        published: $('#new-is-published').val()
+        publishedOn: $('#new-is-published').is(':checked')
     };
-    this.console.log(newArticle);
+    this.console.log(newArticle.publishedOn);
     $('#articles').empty();
 
     // TODO: Instantiate an article based on what's in the form fields:
-    
+
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
 
