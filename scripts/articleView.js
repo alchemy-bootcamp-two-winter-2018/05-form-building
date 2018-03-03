@@ -1,4 +1,3 @@
-/* global rawData */
 'use strict';
 
 const articleView = {};

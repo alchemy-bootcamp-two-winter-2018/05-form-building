@@ -1,6 +1,5 @@
-/* global rawData */
 'use strict';
-
+// eslint-disable-next-line
 const rawData = [
     {
         title: 'Bacon Ipsum',
