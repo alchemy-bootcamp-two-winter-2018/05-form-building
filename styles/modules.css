@@ -12,6 +12,10 @@
   float: right;
 }
 
+.icon-menu a { 
+  font-family: serif;
+}
+
 .main-nav {
   padding: 0.1em;
 }
@@ -48,46 +52,69 @@
   text-decoration: none;
 }
 
+/* Custom checkbox guidance from https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 32px;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 1em;
+  width: 1em;
+  background: linear-gradient(rgb(250, 250, 250), rgb(200, 200, 200));
+  border: solid 1px rgb(200, 200, 200);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 4px;
+  height: 11px;
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  transform: rotate(40deg);
+}
+
 #article-export label {
   font-size: .8em;
   font-style: italic;
-  color: #ccc;
+  color: rgb(150, 150, 150);
+  float: right; 
+  margin: 2em 0;   
 }
 
-/* .form label {
-    font-size: 3em;
+::placeholder {
+  color: rgb(150, 150, 150);
+  opacity: 1;
 }
-  
-.form input {
-    width: 100%;
-    margin: .5em 0;
-    border: 1px solid #ccc;
-    border-width: 0 0 1px 0;
-    border-radius: 0;
-}
-  
-.form input[type="checkbox"] {
-    width: .28em;
-    height: .28em;
-    font-size: 3em;
-}
-  
-.form textarea {
-    width: 100%;
-    margin: .5em 0;
-    font-size: 2em;
-    border: 1px solid #ccc;
-    border-radius: 0;
-}
-  
-.form input:invalid, .form textarea:invalid {
-    border-color: #AE3F3C;
-}
-  
-.form input:valid, .form textarea:valid {
-    border-color: #89CB8E;
-} */
 
+#article-export input {
+  font-size: 1em;
+  color: rgb(150, 150, 150);
+  border-color: rgb(150, 150, 150);
+}
 
 @media only screen and (min-width: 640px) {
   .icon-menu {

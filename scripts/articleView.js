@@ -89,7 +89,6 @@ articleView.handleForm = function() {
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = function() {
-    $('#article-export').hide();
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('#write').show();
     // Clear out the #articles element, so we can put in the updated preview
@@ -99,6 +98,7 @@ articleView.initNewArticlePage = function() {
     $('#article-json').on('focus', function () {
         this.select();
     });
+    $('#article-export').hide();
 
     this.handleForm();
 };
@@ -113,7 +113,7 @@ articleView.create = () => {
     // TODO: Set up a variable to hold the new article we are creating.
     const newData = {
         category: $('#new-category').val(),
-        author: $('#new-author').val(),
+        author: $('#new-author').val() || 'anonymous',
         authorUrl: $('#new-website').val(),
         title: $('#new-title').val(),
         body: $('#new-body').val(),
