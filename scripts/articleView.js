@@ -97,29 +97,30 @@ articleView.initNewArticlePage = () => {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
     $('#new-article').on('change','input,textarea', () => articleView.create());
 };
 
 articleView.create = () => {
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
+    const dt = new Date();
     const newArticle = {
         title: $('#new-title').val(),
         body: $('#new-body').val(),
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
         category: $('#new-category').val(),
-        publishStatus: $('#new-is-published').is(':checked') ? 'published 0 days ago' : ''
+        publishedOn: `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()}`,
+        publishStatus: $('#new-is-published').is(':checked') ? `published on ${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()}` : 'draft'
     };
     $('#articles').empty();
 
-    // TODO: Instantiate an article based on what's in the form fields:
-    // articleView.publishStatus ? 'published 0 days ago' : '';
+    // TODOne: Instantiate an article based on what's in the form fields:
     const template = Handlebars.compile($('#preview-article-template').html());
     $('#articles').append(template(newArticle));
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
 
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
