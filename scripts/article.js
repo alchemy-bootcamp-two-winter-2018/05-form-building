@@ -28,6 +28,4 @@ rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
 
 rawData.forEach(articleObject => articles.push(new Article(articleObject)));
 
-console.log('article template', $('#article-template'));
-
 articles.forEach(article => $('#articles').append(article.toHtml()));

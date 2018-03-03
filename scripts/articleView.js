@@ -4,7 +4,7 @@ const articleView = {};
 
 let today = new Date();
 let dd = today.getDate();
-let mm = today.getMonth() + 1; //January is 0!
+let mm = today.getMonth() + 1;
 const yyyy = today.getFullYear();
 
 if(dd < 10) {
@@ -88,7 +88,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// On the Index.html because it is used to populate the blog posts and render them to the page.
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -103,7 +103,8 @@ articleView.formChange = function() {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This is called on the new.html page and it's used to populate the preview post as well as fill in the JSON text area. And it gives functionality to the form input.
+
 articleView.initNewArticlePage = () => {
     // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('.main-nav .tab:first').click();
