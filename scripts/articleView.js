@@ -109,13 +109,18 @@ articleView.create = () => {
 
     // TODOne: Instantiate an article based on what's in the form fields:
     const date = new Date();
+
+    const pubDate = function () {
+        return ($('input:checked').val() ? `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}` : 'Not Published');
+    };
+
     const data = {
         title: $('#new-title').val(),
         body: $('#new-body').val(),
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
         category: $('#new-category').val(),
-        publishedOn: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`
+        publishedOn: `${pubDate()}`
     };
 
     // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
