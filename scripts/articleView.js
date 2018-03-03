@@ -89,7 +89,7 @@ articleView.initIndexPage = () => {
 articleView.initNewArticlePage = () => {
     // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('#articles').empty();
-    $('tab-content').show();
+    $('.tab-content').show();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
