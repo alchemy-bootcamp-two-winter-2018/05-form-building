@@ -105,24 +105,25 @@ articleView.initNewArticlePage = () => {
 articleView.create = () => {
     // TODONE: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
-
+    const date = new Date();
     const newPost = {
-
-    // TODONE: Instantiate an article based on what's in the form fields:
+        
+        // TODONE: Instantiate an article based on what's in the form fields:
         title: $('#new-title').val(),
         body: $('#new-body').val(),
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
-        category: $('#new-category').val()
+        category: $('#new-category').val(),
+        publishedOn: $('input:checked').val() ? `published ${date}` : '(draft)'
     };
-
+    
     const blogPost = new Article(newPost); //eslint-disable-line
     const html = blogPost.toHtml();
     $('#articlesNew').html(html);
 
+    
+
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
-
-
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
