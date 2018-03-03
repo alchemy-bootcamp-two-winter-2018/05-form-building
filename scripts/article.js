@@ -1,3 +1,4 @@
+/* global rawData */
 'use strict';
 
 const articles = [];

@@ -1,3 +1,4 @@
+/* global rawData */
 'use strict';
 
 const articleView = {};
@@ -73,7 +74,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// in index.html, because it is specific to that page
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -85,7 +86,7 @@ articleView.initIndexPage = () => {
 
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// in new.html, because it is specific to that page
 articleView.initNewArticlePage = () => {
     // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('.tab').show();
