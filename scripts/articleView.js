@@ -118,16 +118,16 @@ articleView.create = () => {
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
         publishedOn: '2018-03-01',
-        body: $('#new-body').val()
+        body: marked($('#new-body').val())
     };
-    // Clear out the #articles element, so we can put in the updated preview
 
+    // Clear out the #articles element, so we can put in the updated preview
 
     // TODONE: Instantiate an article based on what's in the form fields:
     $('#articles').show();
     $('#article-export').show();
     $('#preview-article h1').text(newArticle.title);
-    $('#preview-article .article-body').text(newArticle.body);
+    $('#preview-article .article-body').html(newArticle.body);
     $('#preview-article article').attr('data-author', (newArticle.author));
     $('#preview-article .byline a').text(newArticle.author);
     $('#preview-article .byline a').attr('href', newArticle.authorUrl);
