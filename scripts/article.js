@@ -7,7 +7,7 @@ function Article (rawDataObj) {
     this.authorUrl = rawDataObj.authorUrl;
     this.title = rawDataObj.title;
     this.category = rawDataObj.category;
-    this.body = rawDataObj.body;
+    this.body = marked(rawDataObj.body);
     this.publishedOn = rawDataObj.publishedOn;
 }
 
