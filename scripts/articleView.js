@@ -105,7 +105,7 @@ articleView.initNewArticlePage = () => {
     form.on('change', 'input,textarea', () => articleView.create());
 };
 
-// TODO: refactor this...?
+// TODO-Maybe: refactor this...?
 const todaysDate = new Date();
 const todaysMonth = todaysDate.getUTCMonth() + 1;
 const todaysYear = todaysDate.getUTCFullYear();
@@ -120,8 +120,12 @@ const publishDate = () => {
     }
 };
 
+articleView.highlightCode = function() {
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+};
 articleView.create = () => {
-    console.log('create was called');
     // TODOne: Set up a variable to hold the new article we are creating.
     publishDate();
     const data = {
@@ -137,15 +141,15 @@ articleView.create = () => {
     // Done above in initNewArticlePage
 
     // TODOne: Instantiate an article based on what's in the form fields:
-    const article = new Article(data);
-    console.log(article);
+    const article = new Article(data); // eslint-disable-line
 
     // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     const html = article.toHtml();
     $('#articles').html(html);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
-    // $('pre code').each();
+
+    articleView.highlightCode();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
     $('#article-json').show();
