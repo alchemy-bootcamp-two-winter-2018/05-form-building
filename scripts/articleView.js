@@ -54,6 +54,7 @@ articleView.handleMainNav = () => {
     $('.main-nav .tab:first').click();
 };
 
+
 articleView.setTeasers = () => {
     $('.article-body *:nth-of-type(n+2)').hide();
     $('article').on('click', 'a.read-on', function (e) {
@@ -88,6 +89,7 @@ articleView.initIndexPage = () => {
 // This function is called at the end of new.html to ensure the document finishes loading before we run code
 articleView.initNewArticlePage = () => {
     // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    articleView.handleMainNav();
     $('#articles').empty();
     $('.tab-content').show();
 
@@ -146,5 +148,6 @@ articleView.create = () => {
     // $('pre code').each();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+    $('#article-json').show();
     $('#article-json').val(JSON.stringify(data, true, 2));
 };
