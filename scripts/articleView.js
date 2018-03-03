@@ -133,15 +133,16 @@ articleView.create = () => {
     $('#preview-article .byline a').attr('href', newArticle.authorUrl);
     $('#preview-article article').attr('data-category', (newArticle.category));
 
-    $('pre code').each(function(i, block) {
-        hljs.highlightBlock(block);
-    });
 
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
     // NOTE: I did this procedurally using the above code.
 
-    // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
+    // STRETCHNE: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
+
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
 
     // STRETCHNE: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
     $('#article-json').val(`${JSON.stringify(newArticle, true, 2)},`);
