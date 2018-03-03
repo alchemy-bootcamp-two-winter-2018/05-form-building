@@ -91,7 +91,7 @@ articleView.initNewArticlePage = () => {
     $('.tab').show();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
-    // STRETCH: Hide the export section for now, and show it once we have data to export.
+    // STRETCHdone (through CSS rule): Hide the export section for now, and show it once we have data to export.
 
     $('#article-json').on('focus', function () {
         this.select();
@@ -126,7 +126,7 @@ articleView.create = () => {
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
-    // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+    // STRETCHdone: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
     $('#article-json').show();
     $('#article-json').val(JSON.stringify(newArticle));
 };
