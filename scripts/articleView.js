@@ -133,6 +133,10 @@ articleView.create = () => {
     $('#preview-article .byline a').attr('href', newArticle.authorUrl);
     $('#preview-article article').attr('data-category', (newArticle.category));
 
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
     // NOTE: I did this procedurally using the above code.
 

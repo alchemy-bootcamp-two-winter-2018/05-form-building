@@ -66,7 +66,7 @@
         <form id="new-article">
             <fieldset>
                 <input type="text" id="new-title" placeholder="Title">
-                <textarea placeholder="What do you want to say?" id="new-body"></textarea>
+                <textarea placeholder="What do you want to say?" id="new-body" rows="10"></textarea>
                 <input type="text" id="new-author" placeholder="Author Name">
                 <input type="text" id="new-website" placeholder="Author Website">
                 <input type="text" id="new-category" placeholder="Category">
@@ -103,6 +103,7 @@
     <!-- STRETCHNE: Include script tags for 3rd party libraries to enable Markdown rendering and code syntax highlighting. Use the minified CDN. Keep in mind that if we want these features to render properly on our main blog page (index.html) that we'll need to add those scripts over there, too. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.17/marked.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
