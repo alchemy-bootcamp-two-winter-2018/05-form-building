@@ -19,6 +19,8 @@ Article.prototype.toHtml = function () {
 
     // STRETCH: Pass the article body into the marked.js library to format our Markdown input
 
+    marked(this.body);
+
     return fillTemplate(this);
 };
 
