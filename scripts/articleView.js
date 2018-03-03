@@ -97,7 +97,7 @@ articleView.initIndexPage = () => {
 // This function is called in the new.html page. It serves the same purpose as above.
 articleView.initNewArticlePage = () => {
     // TODONE: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-    articleView.handleMainNav();    
+    articleView.handleMainNav();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCHNE: Hide the export section for now, and show it once we have data to export.
@@ -131,7 +131,7 @@ articleView.create = () => {
     $('#preview-article article').attr('data-author', (newArticle.author));
     $('#preview-article .byline a').text(newArticle.author);
     $('#preview-article .byline a').attr('href', newArticle.authorUrl);
-    $('#preview-article article').attr('data-category', (newArticle.category));        
+    $('#preview-article article').attr('data-category', (newArticle.category));
 
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
     // NOTE: I did this procedurally using the above code.
