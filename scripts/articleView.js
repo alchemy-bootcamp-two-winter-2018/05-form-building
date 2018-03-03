@@ -136,7 +136,7 @@ articleView.create = () => {
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
     // NOTE: I did this procedurally using the above code.
 
-    // STRETCHNE: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
+    // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
     // STRETCHNE: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
