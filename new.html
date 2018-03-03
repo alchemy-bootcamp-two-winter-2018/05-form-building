@@ -16,13 +16,8 @@
         <article class="clearfix" data-author="{{new-author}}" data-category="{{new-category}}">
           <header>
             <h1>{{new-title}}</h1>
-            <div class="byline">
-              By <address><a href="{{newauthorUrl}}">{{new-author}}</a></address>
-              {{new-publish-Status}}
-            </div>
           </header>
           <section class="article-body">{{{new-body}}}</section>
-          <a href="#" class="read-on">Read on &rarr;</a>
         </article>
       </script>
 
@@ -60,16 +55,21 @@
                 <label>
                     <input type="text" id="new-title" placeholder="Title">
                 </label>
-                <label>Content</label> 
-                    <textarea placeholder="What do you want to say?" id="new-body"></textarea>
-                <label>Author's Name</label>
+                <label> 
+                    <textarea placeholder="Main body" id="new-body"></textarea>
+                </label>
+                <label>
                     <input type="text" id="new-author" placeholder="Author Name">
-                <label>Author's Website</label>
+                </label>
+                <label>
                     <input type="text" id="new-website" placeholder="Author Website">
-                <label>Category</label>
+                </label>
+                <label>
                     <input type="text" id="new-category" placeholder="Category">
-                <label>Published</label>
+                </label>
+                <label>
                     <input type="checkbox" id="new-is-published">
+                </label>
                </fieldset>
            </form>
       </section>
@@ -78,13 +78,8 @@
         <!-- NOTE: This is where we will display our article preview -->
       </section>
 
-      <section id="article-export">
+
         <!-- STRETCH: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
-          <label id="export-field" for="article-json" class="pull-right">
-            When finalized, copy the above JSON, and paste it into blogArticles.js
-            <textarea readonly id="artice-json" rows="20" cols="40" ></textarea>
-          </label>
-      </section>
 
     </main>
     <footer>
