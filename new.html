@@ -71,6 +71,10 @@
 
       <section id="article-export">
         <!-- STRETCH: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
+        <label id="export-field" for="neighborhood-json" class="pull-right">
+          When finalized, copy the above JSON, and paste into article.js
+          <textarea readonly id="neighborhood-json" rows="1" cols="40" ></textarea>
+        </label>
       </section>
 
     </main>
@@ -90,7 +94,7 @@
       //  Hint: Look in articleView.js for a function that does this.
       articleView.initNewArticlePage();
       // COMMENT: What is this function doing? Why do we need it?
-      // call this from articleView.js - this calls the code needed that's specific to this page
+      // calls this from articleView.js - this calls the code needed that's specific to this page
     </script>
   </body>
 </html>
