@@ -139,7 +139,7 @@ articleView.create = () => {
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
-    // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+    // STRETCHNE: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
     $('#article-json').val(`${JSON.stringify(newArticle, true, 2)},`);
 
 };
