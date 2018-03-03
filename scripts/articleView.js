@@ -80,6 +80,7 @@ articleView.initIndexPage = () => {
     articleView.handleAuthorFilter();
     articleView.handleMainNav();
     articleView.setTeasers();
+    articleView.preview();
 };
 
 
@@ -96,14 +97,13 @@ articleView.initNewArticlePage = () => {
     });
 
     // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-    articleView.formChange = function () {
-        const form = $('#new-article');
-        form.on('change', 'input, textarea', () => this.preview());
-        console.log('formchange works');
-    };
+
+    const form = $('#new-article');
+    form.on('change', 'input,textarea', () => articleView.preview());
 };
 
-articleView.create = () => {
+articleView.preview = () => {
+    console.log('formchange works');
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
     const newArticleData = {
