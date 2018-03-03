@@ -85,11 +85,11 @@ articleView.initIndexPage = () => {
 
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called at the end of new.html to ensure the document finishes loading before we run code
 articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-    $('tab-content').show();
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('#articles').empty();
+    $('tab-content').show();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
@@ -103,23 +103,24 @@ articleView.initNewArticlePage = () => {
     form.on('change', 'input,textarea', () => articleView.create());
 };
 
+// TODO: refactor this...?
+const todaysDate = new Date();
+const todaysMonth = todaysDate.getUTCMonth() + 1;
+const todaysYear = todaysDate.getUTCFullYear();
+const todaysDay = todaysDate.getUTCDate();
+const todaysDateFormat = `${todaysYear}-${todaysMonth}-${todaysDay}`;
+const publishDate = () => {
+    if ($('#new-is-published').is(':checked')) {
+        return todaysDateFormat;
+    }
+    else {
+        return '';
+    }
+};
 
 articleView.create = () => {
     console.log('create was called');
     // TODOne: Set up a variable to hold the new article we are creating.
-    const todaysDate = new Date();
-    const todaysMonth = todaysDate.getUTCMonth() + 1;
-    const todaysYear = todaysDate.getUTCFullYear();
-    const todaysDay = todaysDate.getUTCDate();
-    const todaysDateFormat = `${todaysYear}-${todaysMonth}-${todaysDay}`;
-    const publishDate = () => {
-        if ($('#new-is-published').is(':checked')) {
-            return todaysDateFormat;
-        }
-        else {
-            return '';
-        }
-    };
     publishDate();
     const data = {
         title: $('#new-title').val(),
@@ -137,7 +138,7 @@ articleView.create = () => {
     const article = new Article(data);
     console.log(article);
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     const html = article.toHtml();
     $('#articles').html(html);
 
