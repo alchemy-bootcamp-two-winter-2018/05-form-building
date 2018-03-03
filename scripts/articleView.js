@@ -81,33 +81,26 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
+// TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+articleView.handleForm = function() {
+    $('form').on('change', 'input, textarea', () => this.create());
+};
+
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
-articleView.initNewArticlePage = () => {
+articleView.initNewArticlePage = function() {
+    $('#article-export').hide();
     // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('#write').show();
-
+    // Clear out the #articles element, so we can put in the updated preview
+    $('#articles').empty();
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
-
     $('#article-json').on('focus', function () {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-    $('form').on('change', 'input, textarea', function() {
-        const newData = {
-            category: $('#new-category').val(),
-            author: $('#new-author').val(),
-            authorUrl: $('#new-website').val(),
-            title: $('#new-title').val(),
-            body: $('#new-body').val(),
-            publishedOn: getPublishedOn($('#new-is-published:checked').val())
-        };
-
-        $('#articles').html(new Article(newData).toHtml()); //eslint-disable-line
-    });
-
+    this.handleForm();
 };
 
 function getPublishedOn(val) {
@@ -118,18 +111,27 @@ function getPublishedOn(val) {
 
 articleView.create = () => {
     // TODO: Set up a variable to hold the new article we are creating.
-    // Clear out the #articles element, so we can put in the updated preview
+    const newData = {
+        category: $('#new-category').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        title: $('#new-title').val(),
+        body: $('#new-body').val(),
+        publishedOn: getPublishedOn($('#new-is-published:checked').val())
+    };
 
+    // $('#articles').html(new Article(newData).toHtml()); //eslint-disable-line
 
     // TODO: Instantiate an article based on what's in the form fields:
-
+    const myArticle = new Article(newData); //eslint-disable-line
 
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
-
+    $('#articles').html(myArticle.toHtml());
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
-
+    $('#article-export').show();
+    $('#article-export input').val(JSON.stringify(newData, true, 2));
 };
