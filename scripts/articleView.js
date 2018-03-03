@@ -100,13 +100,13 @@ articleView.initNewArticlePage = () => {
     articleView.handleMainNav();    
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
-    // STRETCH: Hide the export section for now, and show it once we have data to export.
-
+    // STRETCHNE: Hide the export section for now, and show it once we have data to export.
+    // This is done.
     $('#article-json').on('focus', function () {
         this.select();
     });
 
-    // TODONE: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    // TODONE: Add an event handler to update the preview (STRETCHNE: and the export field) if any inputs change.
     $('#new-article').on('change', function(){articleView.create();});
 };
 
@@ -136,7 +136,7 @@ articleView.create = () => {
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
     // NOTE: I did this procedurally using the above code.
 
-    // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
+    // STRETCHNE: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
     // STRETCHNE: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
