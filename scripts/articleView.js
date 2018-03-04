@@ -2,23 +2,24 @@
 
 const articleView = {};
 
-
 articleView.populateFilters = () => {
-    $('article').each(function () {
-        let val = $(this).find('address a').text();
-        let optionTag = `<option value="${val}">${val}</option>`;
 
-        if ($(`#author-filter option[value="${val}"]`).length === 0) {
-            $('#author-filter').append(optionTag);
-        }
+    function filterOptions(article, dataType, filterId) {
+        const data = $(article).attr(dataType);
 
-        val = $(this).attr('data-category');
-        optionTag = `<option value="${val}">${val}</option>`;
-        if ($(`#category-filter option[value="${val}"]`).length === 0) {
-            $('#category-filter').append(optionTag);
+        if ($(`${filterId} option[value="${data}"]`).length === 0) {
+            const optionNode = `<option value="${data}">${data}</option>`;
+            $(filterId).append(optionNode);
         }
+    }
+
+    $('article').each( (index, element) => {
+        filterOptions(element, 'data-author', '#author-filter');
+        filterOptions(element, 'data-category', '#category-filter');
     });
 };
+
+// articleView.handleFilters = () =>
 
 articleView.handleAuthorFilter = () => {
     $('#author-filter').on('change', function () {
@@ -51,24 +52,25 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
 articleView.setTeasers = () => {
-    $('.article-body *:nth-of-type(n+2)').hide();
+    $('.article-body *:nth-child(n+2)').hide();
+    $('article a.show-less').hide();
+
     $('article').on('click', 'a.read-on', function (e) {
         e.preventDefault();
-        if ($(this).text() === 'Read on →') {
-            $(this).parent().find('*').fadeIn();
-            $(this).html('Show Less &larr;');
-        } else {
-            $('body').animate({
-                scrollTop: ($(this).parent().offset().top)
-            }, 200);
-            $(this).html('Read on &rarr;');
-            $(this).parent().find('.article-body *:nth-of-type(n+2)').hide();
-        }
+        $(this).hide();
+        $(this).prev().children().show();
+        $(this).next().show();
+    });
+
+    $('article').on('click', 'a.show-less', function(){
+        $(this).hide();
+        $(this).prev().show();
+        $(this).siblings().children('*:nth-of-type(n+2)').hide();
     });
 };
 
