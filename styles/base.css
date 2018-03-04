@@ -1,6 +1,7 @@
 img {
   max-width: 100%;
   max-height: 400px;
+  padding: 1em 0;
 }
 
 body {
@@ -15,8 +16,7 @@ main {
 }
 
 hr {
-  margin: 1em;
-  width: 80%;
+  width: 100%;
 }
 
 footer {

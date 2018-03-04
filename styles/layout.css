@@ -1,9 +1,11 @@
 .pull-left {
   float: left;
+  padding-right: 1em;
 }
 
 .pull-right {
   float: right;
+  padding-left: 1em;  
 }
 
 .clearfix::after {

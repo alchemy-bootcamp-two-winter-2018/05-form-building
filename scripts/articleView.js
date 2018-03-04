@@ -83,7 +83,7 @@ articleView.initIndexPage = () => {
 
 // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
 articleView.handleForm = function() {
-    $('form').on('change', 'input, textarea', () => this.create());
+    $('form').on('input change', 'input, textarea', () => this.create());
 };
 
 // COMMENT: Where is this function called? Why?
