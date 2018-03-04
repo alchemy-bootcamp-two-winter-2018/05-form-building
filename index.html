@@ -21,8 +21,10 @@
           </div>
         </header>
         <section class="article-body">{{{body}}}</section>
-        <a href="#" class="read-on">Read on &rarr;</a>
+        <a href="#" class="read-on">Read on &#9660;</a>
+        <a href="#" class="show-less">Show less &#9650;</a>
       </article>
+      <hr>
     </script>
   </head>
 
@@ -35,7 +37,8 @@
         <h2>The shocking power of static pages</h2>
       </section>
       <nav class="main-nav">
-        <div class="icon-menu"></div>
+        <div class="icon-menu"><label for="toggle"></label></div>
+        <input type="checkbox" id="toggle" name="toggle"> 
         <ul>
           <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
           <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
@@ -81,9 +84,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="/scripts/blogArticles.js"></script>
-    <script src="/scripts/article.js"></script>
-    <script src="/scripts/articleView.js"></script>
+    <script src="scripts/blogArticles.js"></script>
+    <script src="scripts/article.js"></script>
+    <script src="scripts/articleView.js"></script>
     <script>
     // COMMENT: What is this function doing? Why do we need it? Will we need one like it on the new article page that we are creating?
     // PUT YOUR RESPONSE HERE
