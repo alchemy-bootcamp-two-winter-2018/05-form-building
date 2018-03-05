@@ -103,7 +103,7 @@ articleView.create = () => {
 
     this.daysAgo =
     $('#articles').show();
-    const article = new Article(newArticle);
+    const article = new Article(newArticle); //eslint-disable-line 
     const articleHtml = article.toHtml();
 
     $('#preview').html(articleHtml);
