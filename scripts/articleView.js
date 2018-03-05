@@ -82,7 +82,11 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-
+articleView.highlightCode = function() {
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+};
 
 // COMMENT: Where is this function called? Why?
 // This is called in the script tag of the new.html because we only want this function to be called on that page.
@@ -101,7 +105,7 @@ articleView.initNewArticlePage = function () {
     form.on('change', 'input, textarea', () => this.create());
 };
 
-articleView.create = () => {
+articleView.create = function () {
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
     $('.tab-content').show();
@@ -111,7 +115,7 @@ articleView.create = () => {
     const date = new Date();
 
     const pubDate = function () {
-        return ($('input:checked').val() ? `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}` : 'Not Published');
+        return ($('input:checked').val() ? `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}` : 'Not Published');
     };
 
     const data = {
@@ -120,8 +124,10 @@ articleView.create = () => {
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
         category: $('#new-category').val(),
-        publishedOn: `${pubDate()}`
+        publishedOn: `${pubDate()}`,
     };
+
+    $('#article-json').val(JSON.stringify(data, true, 2));
 
     // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     const article = new Article(data);
@@ -129,7 +135,7 @@ articleView.create = () => {
     preview.html(html);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
-    // $('pre code').each();
+    this.highlightCode();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
 

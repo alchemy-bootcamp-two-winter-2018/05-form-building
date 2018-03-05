@@ -21,7 +21,7 @@
             {{publishedOn}}
           </div>
         </header>
-        <section class="article-body">{{{body}}}</section>
+        <section class="article-body">{{{bodyHtml}}}</section>
         <a href="#" class="read-on">Read on &rarr;</a>
       </article>
     </script>
@@ -72,7 +72,7 @@
 
       <section id="article-export">
         <!-- STRETCH: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
-        <textarea readonly id="neighborhood-json" rows="20" cols="40" ></textarea>
+        <textarea readonly id="article-json" rows="2" cols="2" ></textarea>
       </section>
 
     </main>
