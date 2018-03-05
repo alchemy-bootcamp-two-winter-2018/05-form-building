@@ -71,8 +71,8 @@ articleView.setTeasers = () => {
     });
 };
 
-// COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// COMMENTed: Where is this function called? Why?
+// Wow, really driving this point home. It's called at the bottom of the index.html page, so the methods needed to make the page work get called as soon as it loads.
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -81,15 +81,15 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-// TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+// TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
 articleView.handleForm = function() {
     $('form').on('input change', 'input, textarea', () => this.create());
 };
 
-// COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// COMMENTed: Where is this function called? Why?
+// Called at the bottom of the new HTML page so the appropriate methods get called when the page is visited and ready.
 articleView.initNewArticlePage = function() {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     $('#write').show();
     // Clear out the #articles element, so we can put in the updated preview
     $('#articles').empty();
@@ -110,7 +110,7 @@ function getPublishedOn(val) {
 }
 
 articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODOne: Set up a variable to hold the new article we are creating.
     const newData = {
         category: $('#new-category').val(),
         author: $('#new-author').val() || 'anonymous',
@@ -120,12 +120,10 @@ articleView.create = () => {
         publishedOn: getPublishedOn($('#new-is-published:checked').val())
     };
 
-    // $('#articles').html(new Article(newData).toHtml()); //eslint-disable-line
-
-    // TODO: Instantiate an article based on what's in the form fields:
+    // TODOne: Instantiate an article based on what's in the form fields:
     const myArticle = new Article(newData); //eslint-disable-line
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     $('#articles').html(myArticle.toHtml());
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
