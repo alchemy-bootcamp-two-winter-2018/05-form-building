@@ -24,47 +24,47 @@
 }
 
 .icon-home:before {
-	content: "\e908";
-}
-.icon-home3:before {
 	content: "\e900";
 }
-.icon-address-book:before {
-	content: "\e901";
-}
-.icon-rocket:before {
-	content: "\e909";
-}
-.icon-power:before {
-	content: "\e90a";
-}
-.icon-menu:before {
+.icon-home3:before {
 	content: "\e902";
 }
+.icon-address-book:before {
+	content: "\e944";
+}
+.icon-rocket:before {
+	content: "\e9a5";
+}
+.icon-power:before {
+	content: "\e9b5";
+}
+.icon-menu:before {
+	content: "\e9bd";
+}
 .icon-link:before {
-	content: "\e903";
+	content: "\e9cb";
 }
 .icon-happy:before {
-	content: "\e904";
+	content: "\e9df";
 }
 .icon-happy2:before {
-	content: "\e905";
+	content: "\e9e0";
 }
 .icon-plus:before {
-	content: "\e90b";
-}
-.icon-minus:before {
-	content: "\e90c";
+	content: "\ea0a";
 }
 .icon-cross:before {
-	content: "\e90d";
+	content: "\ea0f";
 }
 .icon-checkmark:before {
-	content: "\e90e";
+	content: "\ea10";
 }
 .icon-twitter3:before {
-	content: "\e906";
+	content: "\ea96";
 }
 .icon-github:before {
-	content: "\e907";
+	content: "\eab0";
+}
+.icon-write:before {
+	content: "\e905";
 }

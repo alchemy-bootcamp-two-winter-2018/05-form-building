@@ -54,7 +54,7 @@
   color: #ccc;
 }
 
-/* .form label {
+.form label {
     font-size: 3em;
 }
   
@@ -86,7 +86,7 @@
   
 .form input:valid, .form textarea:valid {
     border-color: #89CB8E;
-} */
+}
 
 
 @media only screen and (min-width: 640px) {

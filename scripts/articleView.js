@@ -19,31 +19,17 @@ articleView.populateFilters = () => {
     });
 };
 
-// articleView.handleFilters = () =>
+articleView.handleFilters = (filterType, otherType) => {
 
-articleView.handleAuthorFilter = () => {
-    $('#author-filter').on('change', function () {
+    $(`#${filterType}-filter`).on('change', function () {
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-author="${$(this).val()}"]`).fadeIn();
+            $(`article[data-${filterType}="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
         }
-        $('#category-filter').val('');
-    });
-};
-
-articleView.handleCategoryFilter = () => {
-    $('#category-filter').on('change', function () {
-        if ($(this).val()) {
-            $('article').hide();
-            $(`article[data-category="${$(this).val()}"]`).fadeIn();
-        } else {
-            $('article').fadeIn();
-            $('article.template').hide();
-        }
-        $('#author-filter').val('');
+        $(`#${otherType}-filter`).val('');
     });
 };
 
@@ -75,22 +61,20 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called on the index.html page to initialize the javascript functions specific to that page.  This allows us to differentiate where and when our methods are being called, though they may originate from the same object and/or file source.
 articleView.initIndexPage = () => {
     articleView.populateFilters();
-    articleView.handleCategoryFilter();
-    articleView.handleAuthorFilter();
+    articleView.handleFilters('category', 'author');
+    articleView.handleFilters('author', 'category');
     articleView.handleMainNav();
     articleView.setTeasers();
 };
 
-
-
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called on new.html to allow us to call a different set of javascript functions there, perhaps with different arguments, or in a different order, though they have originated from the same object and file.
 articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    articleView.handleMainNav();
 
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
@@ -100,18 +84,35 @@ articleView.initNewArticlePage = () => {
     });
 
     // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    const form = $('#new-article');
+    form.on('change', 'input, textarea', () => articleView.create());
 };
 
 articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+    // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
-
+    const newArticle = {
+        title: $('#new-title').val(),
+        category: $('#new-category').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        publishedOn: Date.now(),
+        //body
+    };
 
     // TODO: Instantiate an article based on what's in the form fields:
 
+    $('#articles').show();
+    //export here
+    //JSON here
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    const article = new Article(newArticle);
+    const articleHtml = article.toHtml();
+
+    $('#preview').html(articleHtml);
+
+
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
 
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():

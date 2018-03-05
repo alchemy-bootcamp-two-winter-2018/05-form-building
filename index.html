@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
-    <script id="article-template" type="text/x-handlebars-template">
-      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+    <template id="article-template">
+      <article data-author="{{author}}" data-category="{{category}}">
         <header>
           <h1>{{title}}</h1>
           <div class="byline">
@@ -25,11 +25,11 @@
         <a href="#" class="show-less">Show less &#9650;</a>
         <hr>
       </article>
-    </script>
+    </template>
   </head>
 
   <body>
-    <header class="site-header clearfix">
+    <header class="site-header">
       <section class="heading-group-h1">
         <h1>
           Kilovolt Blog!
@@ -37,11 +37,11 @@
         <h2>The shocking power of static pages</h2>
       </section>
       <nav class="main-nav">
-        <div class="icon-menu"><label for="toggle"></label></div>
-        <input type="checkbox" id="toggle" name="toggle"> 
+        <div class="icon-menu"></div>
         <ul>
           <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
           <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+          <li><a href="new.html" class="icon-write"> Write</a></li>
           <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
           <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
         </ul>

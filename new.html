@@ -11,10 +11,26 @@
     <link rel="stylesheet" href="styles/modules.css">
     <!-- STRETCH: To fully incorporate the highlighting library "hljs" we need to fill the empty link tag below to refer to a CSS file that will handle our text highlighting -->
     <link>
-    <!-- TODO: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
-    </head>
+    <!-- TODOne: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
+    <template id="article-template">
+      <article data-author="{{author}}" data-category="{{category}}">
+        <header>
+          <h1>{{title}}</h1>
+          <div class="byline">
+            By <address><a href="{{authorUrl}}">{{author}}</a></address>
+            {{publishStatus}}
+          </div>
+        </header>
+        <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-on">Read on &#9660;</a>
+        <a href="#" class="show-less">Show less &#9650;</a>
+        <hr>
+      </article>
+    </template>
+  </head>
+
   <body>
-    <header class="site-header clearfix">
+    <header class="site-header">
       <section class="heading-group-h1 pull-left">
         <h1>
           Kilovolt Blog!
@@ -25,15 +41,17 @@
         <div class="icon-menu"></div>
         <ul>
           <!-- STRETCH: In the same way that we enabled tab navigation on index.html, we can do the same on this page utilizing these elements. -->
+          <li><a href="index.html" class="icon-home"> Home</a></li>
           <li class="tab" data-content="write"><a href="#" class="icon-plus"> Write</a></li>
-          <li class="tab" data-content="articles"><a href="#" class="icon-checkmark"> Preview</a></li>
+          <li class="tab" data-content="preview"><a href="#" class="icon-checkmark"> Preview</a></li>
         </ul>
       </nav>
     </header>
-    <main class="clearfix">
 
+
+    <main>
       <section id="write" class="tab-content">
-        <h1>Create New Article</h1>
+        <h1>New Article</h1>
         <!-- TODO: Set up a form to accept user input for a new blog article. Remember that we need:
            1. Article title
            2. Article body
@@ -41,7 +59,7 @@
            4. Author's URL
            5. Article category
            6. Some way to know if this article is a draft or is published -->
-           <form id="new-article">
+           <form action="#" id="new-article">
                <fieldset>
                     <input type="text" id="new-title" placeholder="Title">
                     <textarea placeholder="What do you want to say?" id="new-body"></textarea>
@@ -53,7 +71,7 @@
            </form>
       </section>
 
-      <section id="articles" class="tab-content">
+      <section id="preview" class="tab-content">
         <!-- NOTE: This is where we will display our article preview -->
       </section>
 
@@ -69,16 +87,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <!-- STRETCH: Include script tags for 3rd party libraries to enable Markdown rendering and code syntax highlighting. Use the minified CDN. Keep in mind that if we want these features to render properly on our main blog page (index.html) that we'll need to add those scripts over there, too. -->
-    <script src="/scripts/blogArticles.js"></script>
-    <script src="/scripts/article.js"></script>
-    <script src="/scripts/articleView.js"></script>
+    <script src="scripts/blogArticles.js"></script>
+    <script src="scripts/article.js"></script>
+    <script src="scripts/articleView.js"></script>
     <script>
-      // TODO: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
-      // (Look at the bottom of index.html as a reference. Since we are now using our JS on two different HTML pages that have different needs as to what parts of the code they utilize, we need to build a function that inializes each page.)
-      //  Hint: Look in articleView.js for a function that does this.
+      // TODOne: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
+      articleView.initNewArticlePage();
 
       // COMMENT: What is this function doing? Why do we need it?
-      // PUT YOUR RESPONSE HERE
+      // This function is starting the specific scripts required to run this page.
     </script>
   </body>
 </html>
