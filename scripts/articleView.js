@@ -51,7 +51,7 @@ articleView.handleMainNav = () => {
         $('.tab-content').hide();
         $(`#${$(this).attr('data-content')}`).fadeIn();
     });
-    
+
     $('.main-nav .tab:first').click();
 };
 
@@ -73,7 +73,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This is called in the script tag of the index.html because we only want this function to be called on that page.
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -82,14 +82,17 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-
+articleView.highlightCode = function() {
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+};
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
-articleView.initNewArticlePage = () => {
-    // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
-
+// This is called in the script tag of the new.html because we only want this function to be called on that page.
+articleView.initNewArticlePage = function () {
+    // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    articleView.handleMainNav();
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
 
@@ -97,23 +100,42 @@ articleView.initNewArticlePage = () => {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    const form = $('#new-article');
+    form.on('change', 'input, textarea', () => this.create());
 };
 
-articleView.create = () => {
-    // TODO: Set up a variable to hold the new article we are creating.
+articleView.create = function () {
+    // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
+    $('.tab-content').show();
+    const preview = $('#articles');
 
+    // TODOne: Instantiate an article based on what's in the form fields:
+    const date = new Date();
 
-    // TODO: Instantiate an article based on what's in the form fields:
+    const pubDate = function () {
+        return ($('input:checked').val() ? `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}` : 'Not Published');
+    };
 
+    const data = {
+        title: $('#new-title').val(),
+        body: $('#new-body').val(),
+        author: $('#new-author').val(),
+        authorUrl: $('#new-website').val(),
+        category: $('#new-category').val(),
+        publishedOn: `${pubDate()}`,
+    };
 
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    $('#article-json').val(JSON.stringify(data, true, 2));
 
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
+    const article = new Article(data);
+    const html = article.toHtml();
+    preview.html(html);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
-    // $('pre code').each();
+    this.highlightCode();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
 
