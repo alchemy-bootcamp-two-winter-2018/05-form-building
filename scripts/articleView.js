@@ -79,11 +79,9 @@ articleView.initNewArticlePage = () => {
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
 
-    $('#article-json').on('focus', function () {
-        this.select();
-    });
+    $('#article-export').hide();
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
     const form = $('#new-article');
     form.on('change', 'input, textarea', () => articleView.create());
 };
@@ -94,30 +92,31 @@ articleView.create = () => {
     const newArticle = {
         title: $('#new-title').val(),
         category: $('#new-category').val(),
+        body: $('#new-body').val(),
         author: $('#new-author').val(),
         authorUrl: $('#new-website').val(),
-        publishedOn: Date.now(),
-        //body
+        publishedOn: $('#new-is-published').is(':checked') ? new Date() : 'Draft',
     };
 
-    // TODO: Instantiate an article based on what's in the form fields:
+    // TODOne: Instantiate an article based on what's in the form fields:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
 
+    this.daysAgo =
     $('#articles').show();
-    //export here
-    //JSON here
-
     const article = new Article(newArticle);
     const articleHtml = article.toHtml();
 
     $('#preview').html(articleHtml);
 
 
-    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
-
-
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
     // $('pre code').each();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+    $('#article-export').show();
+    $('#article-json').val(JSON.stringify(newArticle, true, 2));
+    $('#article-json').on('focus', function () {
+        this.select();
+    });
 
 };
