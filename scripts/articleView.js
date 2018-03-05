@@ -80,7 +80,7 @@ articleView.initIndexPage = () => {
     articleView.handleAuthorFilter();
     articleView.handleMainNav();
     articleView.setTeasers();
-    // articleView.preview();
+    articleView.preview();
 };
 
 
