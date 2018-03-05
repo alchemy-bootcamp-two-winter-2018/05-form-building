@@ -80,7 +80,7 @@ articleView.initIndexPage = () => {
     articleView.handleAuthorFilter();
     articleView.handleMainNav();
     articleView.setTeasers();
-    articleView.preview();
+    // articleView.preview();
 };
 
 
@@ -91,7 +91,7 @@ articleView.initNewArticlePage = () => {
     // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
-
+    console.log('articleview.js intNEwfired');
     $('#article-json').on('focus', function () {
         this.select();
     });
@@ -108,7 +108,7 @@ articleView.initNewArticlePage = () => {
 articleView.preview = () => {
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
-    console.log('preview fired');
+
     const newArticleData = {
         title: $('#new-title').val(),
         category: $('#new-category').val(),
@@ -118,7 +118,7 @@ articleView.preview = () => {
         body: $('new-body').val(),
     };
 
-
+    console.log('previewfired');
     // TODOne: Instantiate an article based on what's in the form fields:
 
     // eslint-disable-next-line
