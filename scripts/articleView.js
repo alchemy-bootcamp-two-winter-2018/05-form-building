@@ -118,7 +118,6 @@ articleView.preview = () => {
         body: $('new-body').val(),
     };
 
-    console.log('previewfired');
     // TODOne: Instantiate an article based on what's in the form fields:
 
     // eslint-disable-next-line
