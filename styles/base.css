@@ -25,6 +25,12 @@ footer {
   padding-bottom: 5px;
 }
 
+footer {
+  margin-top: 2em;
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
 /*TEXT STYLES
 =======================================*/
 h1 {
