@@ -100,12 +100,15 @@ articleView.initNewArticlePage = () => {
 
     const form = $('#new-article');
     form.on('change', 'input,textarea', () => articleView.preview());
+
+    const previewButton = $('.icon-checkmark');
+    previewButton.on('click', () => console.log('previewClicked'));
 };
 
 articleView.preview = () => {
-    console.log('formchange works');
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
+    console.log('preview fired');
     const newArticleData = {
         title: $('#new-title').val(),
         category: $('#new-category').val(),
@@ -117,8 +120,7 @@ articleView.preview = () => {
 
 
     // TODOne: Instantiate an article based on what's in the form fields:
-    // $('#article-export').show();
-    // $('#article-json').val(JSON.stringify(newArticleData, true, 2));
+
     // eslint-disable-next-line
     const newArticle = new Article(newArticleData);
     // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
@@ -126,7 +128,6 @@ articleView.preview = () => {
     $('#article-template').html(html);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
-    // $('pre code').each();
 
     // STRETCH: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
 
