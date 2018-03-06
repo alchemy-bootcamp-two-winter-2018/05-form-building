@@ -73,7 +73,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// It is being called in index.html because we want only specific functions to be run when the html in that file is finished loading.
 articleView.initIndexPage = () => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
@@ -85,7 +85,7 @@ articleView.initIndexPage = () => {
 
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// It is being called in new.html because we want specific functions to be run when the html in that file is loaded.
 articleView.initNewArticlePage = () => {
     // TODONE: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
     articleView.handleMainNav();
@@ -96,7 +96,7 @@ articleView.initNewArticlePage = () => {
         this.select();
     });
 
-    // TODO: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
+    // TODONE: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
     $('#new-article').on('change', function() {
         articleView.create();
     });
@@ -107,7 +107,7 @@ articleView.create = () => {
     // Clear out the #articles element, so we can put in the updated preview
     const date = new Date();
     const newPost = {
-        
+
         // TODONE: Instantiate an article based on what's in the form fields:
         title: $('#new-title').val(),
         body: $('#new-body').val(),
@@ -116,12 +116,12 @@ articleView.create = () => {
         category: $('#new-category').val(),
         publishedOn: $('input:checked').val() ? `published ${date}` : '(draft)'
     };
-    
+
     const blogPost = new Article(newPost); //eslint-disable-line
     const html = blogPost.toHtml();
     $('#articlesNew').html(html);
 
-    
+
 
     // TODONE: Use our interface to the Handlebars template to put this new article into the DOM:
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
