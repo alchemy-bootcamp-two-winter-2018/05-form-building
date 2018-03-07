@@ -80,7 +80,6 @@ articleView.initIndexPage = () => {
     articleView.handleAuthorFilter();
     articleView.handleMainNav();
     articleView.setTeasers();
-    articleView.preview();
 };
 
 
@@ -95,12 +94,12 @@ articleView.initNewArticlePage = () => {
     $('#article-json').on('focus', function () {
         this.select();
     });
-
+    
     // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-
+    
     const form = $('#new-article');
     form.on('change', 'input,textarea', () => articleView.preview());
-
+    
     const previewButton = $('.icon-checkmark');
     previewButton.on('click', () => console.log('previewClicked'));
 };
