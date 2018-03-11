@@ -2,7 +2,6 @@
 
 const articleView = {};
 
-
 articleView.populateFilters = () => {
     $('article').each(function () {
         let val = $(this).find('address a').text();
@@ -82,26 +81,20 @@ articleView.initIndexPage = () => {
     articleView.setTeasers();
 };
 
-
-
+articleView.formChange = function() {
+    const form = $('#new-article');
+    form.on('change', 'input,textarea', () => articleView.preview());
+};
 // COMMENT: Where is this function called? Why?
 // At the bottom of the new.html page, because we need a different HTML page to refer to the part of JS that serves its needs (it wouldn't make sense to call both sets of code on each page)
 articleView.initNewArticlePage = () => {
     // TODOne: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
+    $('.main-nav .tab:first').click();
     // The new articles we create will be given to the user as JSON so they can copy/paste it into their source data file.
     // STRETCH: Hide the export section for now, and show it once we have data to export.
-    console.log('articleview.js intNEwfired');
-    $('#article-json').on('focus', function () {
-        this.select();
-    });
-    
+
     // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
-    
-    const form = $('#new-article');
-    form.on('change', 'input,textarea', () => articleView.preview());
-    
-    const previewButton = $('.icon-checkmark');
-    previewButton.on('click', () => console.log('previewClicked'));
+    articleView.formChange();
 };
 
 articleView.preview = () => {
@@ -119,11 +112,12 @@ articleView.preview = () => {
 
     // TODOne: Instantiate an article based on what's in the form fields:
 
+
     // eslint-disable-next-line
     const newArticle = new Article(newArticleData);
-    // TODO: Use our interface to the Handlebars template to put this new article into the DOM:
+    // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     const html = newArticle.toHtml();
-    $('#article-template').html(html);
+    $('#articlesPrev').html(html);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
 

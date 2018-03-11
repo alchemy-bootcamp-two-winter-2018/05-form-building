@@ -101,19 +101,13 @@
       // TODOne: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
       // (Look at the bottom of index.html as a reference. Since we are now using our JS on two different HTML pages that have different needs as to what parts of the code they utilize, we need to build a function that inializes each page.)
       //  Hint: Look in articleView.js for a function that does this.
-    // articleView.initNewArticlePage = () => {
-    //   console.log('init run');
-    // $('#article-json').on('focus', function () {
-    //     this.select();
-    // });
+
     // TODOne: Add an event handler to update the preview (STRETCH: and the export field) if any inputs change.
     
     // };
   
     articleView.initNewArticlePage();
     
-    const form = $('#new-article');
-    form.on('change', 'input,textarea', () => articleView.preview());
     // COMMENT: What is this function doing? Why do we need it?
     // This function is creating the new article page (just like it says) after the user submits their form entries. It has to be separate from the main HTML page because the main page uses different JS that cannot be comingled.
     </script>
