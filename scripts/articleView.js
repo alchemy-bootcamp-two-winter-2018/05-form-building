@@ -100,16 +100,16 @@ articleView.initNewArticlePage = () => {
 articleView.preview = () => {
     // TODOne: Set up a variable to hold the new article we are creating.
     // Clear out the #articles element, so we can put in the updated preview
+    console.log('preview fired');
 
     const newArticleData = {
         title: $('#new-title').val(),
         category: $('#new-category').val(),
-        author: $('new-author').val(),
-        authorURL: $('new-website').val(),
-        publishStatus: $('new-is-published').val(),
-        body: $('new-body').val(),
+        author: $('#new-author').val(),
+        authorURL: $('#new-website').val(),
+        publishStatus: $('#new-is-published').val(),
+        body: $('#new-body').val(),
     };
-
     // TODOne: Instantiate an article based on what's in the form fields:
 
 
@@ -118,6 +118,7 @@ articleView.preview = () => {
     // TODOne: Use our interface to the Handlebars template to put this new article into the DOM:
     const html = newArticle.toHtml();
     $('#articlesPrev').html(html);
+    console.log(newArticle);
 
     // STRETCH: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
 
