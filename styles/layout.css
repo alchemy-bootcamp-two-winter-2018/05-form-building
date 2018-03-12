@@ -1,0 +1,40 @@
+.pull-left {
+  float: left;
+  padding-right: 1em;
+}
+
+.pull-right {
+  float: right;
+  padding-left: 1em;  
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.heading-group-h1 {
+  max-width: 80%;
+}
+
+#filters select {
+  width: 90%;
+  margin: .2em 5%;
+}
+
+@media only screen and (min-width: 640px) {
+  .heading-group-h1 {
+    padding: .1em .1em .1em 2em;
+    float: none;
+  }
+
+  #filters select {
+    width: 15em;
+    margin: .2em .2em;
+  }
+
+  #filters li {
+    display: inline;
+  }
+}
